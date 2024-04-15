@@ -1,3 +1,46 @@
+/* 기본 폰트 - pretendard */
+@font-face {
+  font-family: 'pretendard';
+  src: url('./assets/fonts/Pretendard-Medium.woff2');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'pretendard';
+  src: url('./assets/fonts/Pretendard-Bold.woff2');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'pretendard';
+  src: url('./assets/fonts/Pretendard-ExtraBold.woff2');
+  font-weight: 800;
+}
+
+/* code 폰트 - CascadiaCode */
+@font-face {
+  font-family: 'CascadiaCode';
+  src: url('./assets/fonts/CascadiaCode.woff2');
+}
+
+/* font 적용 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+input,
+textarea,
+ul,
+li {
+  font-family: 'pretendard';
+}
+.logo-text,
+code {
+  font-family: 'CascadiaCode';
+}
+
 :root {
   line-height: 1.5;
 
