@@ -5,13 +5,15 @@ import { createJSONStorage, devtools, persist } from 'zustand/middleware';
 // 상태 타입 정의
 interface ThemeState {
   theme: ThemeColor;
-  toggleTheme: () => void;
+  toggleLight: () => void;
+  toggleDark: () => void;
 }
 
 // 상태 초기값
 const initialState: ThemeState = {
   theme: 'dark',
-  toggleTheme: () => {},
+  toggleLight: () => {},
+  toggleDark: () => {},
 };
 
 const useThemeStore = create<ThemeState>()(
@@ -19,7 +21,16 @@ const useThemeStore = create<ThemeState>()(
     persist(
       (set) => ({
         ...initialState,
-        toggleTheme: () => set((state) => ({ theme: state.theme === 'light' ? 'dark' : 'light' })),
+        toggleLight: () =>
+          set((state) => {
+            if (state.theme === 'light') return state;
+            return { theme: 'light' };
+          }),
+        toggleDark: () =>
+          set((state) => {
+            if (state.theme === 'dark') return state;
+            return { theme: 'dark' };
+          }),
       }),
       {
         name: 'hyemin-editor-storage',

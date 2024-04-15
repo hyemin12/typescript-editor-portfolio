@@ -7,9 +7,7 @@ const SearchBox = () => {
   return (
     <SearchBoxStyle>
       <form>
-        <span>
-          <PiMagnifyingGlass />
-        </span>
+        <span>{/* <PiMagnifyingGlass /> */}</span>
         <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
       </form>
     </SearchBoxStyle>

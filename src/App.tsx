@@ -39,7 +39,7 @@ function App() {
 const Main = styled.div`
   flex-grow: 1;
   display: flex;
-  height: calc(100vh - 36px - 20px);
+  height: calc(100vh - 48px - 20px);
 `;
 
 const Footer = styled.footer`
