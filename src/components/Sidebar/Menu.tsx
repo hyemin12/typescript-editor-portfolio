@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled, { css } from 'styled-components';
-import { PiFile, PiFileFill, PiFolder, PiFolderNotchOpen, PiFolderOpenFill, PiFolderSimpleFill } from 'react-icons/pi';
+import { PiFileFill, PiFolderOpenFill, PiFolderSimpleFill } from 'react-icons/pi';
 
 interface MenuProps {
   name: string;

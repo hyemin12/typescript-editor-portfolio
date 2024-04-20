@@ -1,8 +1,6 @@
+import styled, { css } from 'styled-components';
 import useThemeStore from '@/store/theme.store';
 import { ThemeColor } from '@/style/theme';
-import React from 'react';
-import { PiSunDim, PiMoon } from 'react-icons/pi';
-import styled, { css } from 'styled-components';
 
 interface SwitchModeProps {
   theme: ThemeColor;

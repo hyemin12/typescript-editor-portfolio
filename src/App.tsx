@@ -1,4 +1,4 @@
-import styled, { ThemeProvider } from 'styled-components';
+import styled, { DefaultTheme, ThemeProvider } from 'styled-components';
 import Header from '@/components/Header/Header';
 import Sidebar from '@/components/Sidebar/Sidebar';
 import useThemeStore from '@/store/theme.store';

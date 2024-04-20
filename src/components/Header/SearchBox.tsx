@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { PiMagnifyingGlass } from 'react-icons/pi';
 import styled from 'styled-components';
 
