@@ -55,8 +55,8 @@ const Sidebar = () => {
   return (
     <SidebarStyle>
       <SectionTitle>file explorer</SectionTitle>
-      <Menu type="folder" name="닫힌 폴더" isFolderOpen={false} />
-      <Menu type="folder" name="열린 폴더" isFolderOpen />
+      <Menu type="folder" name="닫힌 폴더" />
+      <Menu type="folder" name="열린 폴더" subFiles={['파일1', '파일2', '파일3']} />
       <Menu type="file" name="파일" />
       {}
     </SidebarStyle>

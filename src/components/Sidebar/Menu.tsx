@@ -1,20 +1,36 @@
-import React from 'react';
-import styled from 'styled-components';
+import { useState } from 'react';
+import styled, { css } from 'styled-components';
 import { PiFile, PiFileFill, PiFolder, PiFolderNotchOpen, PiFolderOpenFill, PiFolderSimpleFill } from 'react-icons/pi';
 
 interface MenuProps {
   name: string;
   type: 'file' | 'folder';
-  isFolderOpen?: boolean;
+  subFiles?: string[];
 }
 
-const Menu = ({ isFolderOpen, type, name }: MenuProps) => {
+const Menu = ({ type, name, subFiles }: MenuProps) => {
+  const [isFolderOpen, setIsFolderOpen] = useState(false);
   if (type === 'folder')
     return (
-      <MenuStyle>
-        <span>{isFolderOpen ? <PiFolderOpenFill /> : <PiFolderSimpleFill />}</span>
-        {name}
-      </MenuStyle>
+      <>
+        <MenuStyle onClick={() => setIsFolderOpen(!isFolderOpen)}>
+          <span>{isFolderOpen ? <PiFolderOpenFill /> : <PiFolderSimpleFill />}</span>
+          {name}
+        </MenuStyle>
+
+        {isFolderOpen && (
+          <SubMenuStyle>
+            {subFiles?.map((file) => (
+              <li>
+                <span>
+                  <PiFileFill />
+                </span>
+                {file}
+              </li>
+            ))}
+          </SubMenuStyle>
+        )}
+      </>
     );
   return (
     <MenuStyle>
@@ -25,23 +41,42 @@ const Menu = ({ isFolderOpen, type, name }: MenuProps) => {
     </MenuStyle>
   );
 };
+
+const CommonMenuStyle = css`
+  color: ${({ theme }) => theme.systemColor.secondaryFont};
+  cursor: pointer;
+  span {
+    width: 20px;
+    height: 20px;
+    svg {
+      font-size: 1.25rem;
+      fill: ${({ theme }) => theme.systemColor.secondaryFont};
+    }
+  }
+
+  &.active,
+  &:hover {
+    background-color: ${({ theme }) => theme.systemColor.active};
+  }
+`;
+
 const MenuStyle = styled.div`
   display: flex;
   align-items: center;
   gap: 6px;
   padding: 0.1em 1em;
-  cursor: pointer;
+  ${CommonMenuStyle}
+`;
 
-  svg {
-    font-size: 1.25rem;
-
-    fill: ${({ theme }) => theme.systemColor.secondaryFont};
-  }
-
-  color: ${({ theme }) => theme.systemColor.secondaryFont};
-  };
-  &.active {
-    background-color: ${({ theme }) => theme.systemColor.active};
+const SubMenuStyle = styled.ul`
+  margin: 0.25em 0;
+  padding: 0;
+  li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-left: 30px;
+    ${CommonMenuStyle}
   }
 `;
 
